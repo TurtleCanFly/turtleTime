@@ -18,7 +18,7 @@ $("#btn-left").click(function(){
 function run(){
 	res = todos.find();
 	for(var i = 0 ; i < res.length; i++){
-		$("#toDoList").append('<p class="list-group-item">' + res[i].name + '<input type="checkbox" class="checkbox" id = item_' + res[i]._id + '></p>');
+		$("#toDoList").append('<p class="list-group-item">' + res[i].subject + ' - - ' + res[i].name + '<input type="checkbox" class="checkbox" id = item_' + res[i]._id + '></p>');
 	}
 }
 
