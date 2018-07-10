@@ -14,16 +14,16 @@
 #turtle {
 	position: absolute;
 	z-index: 2;
-	width:500px;
-	height:284px;
+	width:750px;
+	height:auto;
 	clip: rect(0, 100px, 50px, 0);
 	
 }
 
 #turtleLoad {
 	z-index: 1;
-	width:454px;
-	height:284px;
+	width:750px;
+	height:auto;
 	
 }
 
