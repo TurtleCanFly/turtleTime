@@ -42,7 +42,7 @@
 	width:800px;
 	height:300px;
 	border-radius: 15px 50px;
-	font-family: 100px;
+	font-size: 100px;
 }
 #btn-view{
 	position: absolute;
@@ -50,5 +50,5 @@
 	width:800px;
 	height:300px;
 	border-radius: 15px 50px;
-	font-family: 100px;
+	font-size: 100px;
 }
