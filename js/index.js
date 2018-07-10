@@ -30,6 +30,9 @@ res = todos.find({
 	name: $exists
 });
 
-for(var i = 0 ; i < res.length(); i++){
-	$(".list-group").append("")
+
+function run(){
+	for(var i = 0 ; i < res.length(); i++){
+		$(".list-group").append('<li class="list-group-item">' + res[i].name + '</li>');
+	}
 }
