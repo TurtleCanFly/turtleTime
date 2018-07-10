@@ -1,3 +1,7 @@
+#indexWrapper {
+	text-align: center;
+	margin: 0 auto;
+}
 
 #p1 {
 	border-left: 6px solid lavender;
@@ -8,16 +12,26 @@
 }
 
 #turtle {
+	position: absolute;
+	z-index: 2;
+	width:500px;
+	height:284px;
+	clip: rect(0, 100px, 50px, 0);
+	
+}
+
+#turtleLoad {
+	z-index: 1;
 	width:454px;
 	height:284px;
-	float: right;
+	
 }
+
 
 #toDoList {
 	margin:30px;
-	width:50%;
 	font-size:40px;
-	height:100px;
+	height:500px;
 	overflow-y:scroll;
 }
 #btn-left{
