@@ -38,19 +38,19 @@
 }
 #btn-setup{
 	position: absolute;
-	top: 95%;
-	left: 90%;
-	width:200px;
-	height:200px;
+	top: 10%;
+	left: 50%;
+	width:800px;
+	height:300px;
 	border-radius: 50px;
 	font-family: 40px;
 }
 #btn-view{
 	position: absolute;
-	top: 95%;
-	right: 90%;
-	width:100px;
-	height:100px;
+	top: 50%;
+	right: 50%;
+	width:800px;
+	height:300px;
 	border-radius: 50px;
 	font-family: 40px;
 }
