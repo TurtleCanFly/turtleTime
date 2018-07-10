@@ -1,3 +1,7 @@
+#indexWrapper {
+	text-align: center;
+	margin: 0 auto;
+}
 
 #p1 {
 	border-left: 6px solid lavender;
@@ -8,17 +12,43 @@
 }
 
 #turtle {
-	width:454px;
-	height:284px;
-	float: right;
+	position: absolute;
+	z-index: 2;
+	width:750px;
+	height:auto;
+	clip: rect(0, 100px, 50px, 0);
+	
+}
+
+#turtleLoad {
+	z-index: 1;
+	width:750px;
+	height:auto;
+	
 }
 
 #toDoList {
 	margin:30px;
-	width:50%;
+	font-size:40px;
+	height:500px;
+	overflow-y:scroll;
+}
+#btn-back {
+	margin: 30px;
+	text-align: center;
 	font-size:40px;
 }
-#btn-left{
+#btn-setup {
+	margin: 30px;
+	text-align: center;
+	font-size:40px;
+}
+#btn-view {
+	margin: 30px;
+	text-align: center;
+	font-size:40px;
+}
+#btn-left {
 	position: absolute;
 	top: 95%;
 	left: 90%;
@@ -27,7 +57,7 @@
 	border-radius: 50px;
 	font-family: 40px;
 }
-#btn-right{
+#btn-right {
 	position: absolute;
 	top: 95%;
 	right: 90%;
@@ -36,6 +66,7 @@
 	border-radius: 50px;
 	font-family: 40px;
 }
+<<<<<<< HEAD
 #btn-setup{
 	position: absolute;
 	top: 20%;
@@ -54,3 +85,41 @@
 	border-radius: 15px 50px;
 	font-size: 100px;
 }
+=======
+.checkbox {
+	float: right;
+	width:40px;
+	height:40px;
+}
+#subject {
+	font-size: 50px;
+}
+#name {
+	font-size: 25px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	]
+
+}
+>>>>>>> daca37c8804968172e3080172db4222f029752c9
