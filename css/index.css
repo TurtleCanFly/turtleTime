@@ -17,6 +17,8 @@
 	margin:30px;
 	width:50%;
 	font-size:40px;
+	height:300px;
+	overflow-y:scroll;
 }
 #btn-left{
 	position: absolute;
