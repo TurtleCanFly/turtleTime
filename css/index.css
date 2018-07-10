@@ -41,7 +41,7 @@
 	top: 10%;
 	width:800px;
 	height:300px;
-	border-radius: 50px;
+	border-radius: 15px 50px;
 	font-family: 40px;
 }
 #btn-view{
@@ -49,6 +49,6 @@
 	top: 50%;
 	width:800px;
 	height:300px;
-	border-radius: 50px;
+	border-radius: 15px 50px;
 	font-family: 40px;
 }
