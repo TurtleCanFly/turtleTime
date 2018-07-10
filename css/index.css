@@ -38,8 +38,8 @@
 }
 #btn-setup{
 	position: absolute;
-	top: 95%;
-	left: 90%;
+	top: 80%;
+	left: 50%;
 	width:100px;
 	height:100px;
 	border-radius: 50px;
@@ -47,8 +47,8 @@
 }
 #btn-view{
 	position: absolute;
-	top: 95%;
-	right: 90%;
+	top: 50%;
+	right: 50%;
 	width:100px;
 	height:100px;
 	border-radius: 50px;
