@@ -12,7 +12,9 @@ Data structure:
 */
 
 
-
+$("#btn-left").click(function(){
+  alert("hello");
+});
 
 function run(){
 	res = todos.find();

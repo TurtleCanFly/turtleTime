@@ -21,7 +21,7 @@
 #btn-left{
 	position: absolute;
 	top: 95%;
-	left: 90%;
+	right: 90%;
 	width:100px;
 	height:100px;
 	border-radius: 50px;
@@ -30,7 +30,7 @@
 #btn-right{
 	position: absolute;
 	top: 95%;
-	right: 90%;
+	left: 90%;
 	width:100px;
 	height:100px;
 	border-radius: 50px;
