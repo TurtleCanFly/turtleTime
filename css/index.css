@@ -12,3 +12,26 @@
 	height:284px;
 	float: right;
 }
+
+#toDoList {
+	margin:30px;
+	width:50%;
+	font-size:40px;
+}
+#btn-left{
+	float: left;
+	right:90%;
+	
+}
+#btn-right{
+	float: right;
+	right:0%;
+
+}
+button {
+	top: 80%;
+	margin: 30px;
+	width:40px;
+	height:40px;
+	border-radius: 20px;
+}
