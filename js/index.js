@@ -32,6 +32,7 @@ $(document).on('change', '#examPicker', function(e) {
 
 
 function run(){
+    console.log("hi");
     $("#toDoList").empty();
 	res = todos.find();
     s = schedule.find();
@@ -54,18 +55,30 @@ function run(){
         //$("#toDoList").append('<li>' + '<span id="name">' + res[i].name + '</span><span id = "date">    ' + (date.getMonth()+1) + '/' + date.getDate() + '</span><span id = "indexCheck"><a href="#" class = "delItem">' +
           //'<span class="glyphicon glyphicon-minus"></span></a><input type="checkbox" class="checkbox" id = item_' + res[i]._id + '></span></li>');
 
+        if(res[i].isDone == true){
+                console.log("#iid_" + res[i]._id);
+                $("#iid_" + res[i]._id).css("color", "green");
+            }
         }
 	}
     for(var i = 0 ; i < s.length; i++){
         //console.log(s[i]);
         var date = new Date(s[i].date);
         if(new Date().setHours(0,0,0,0) == date.setHours(0,0,0,0)) {
-        // Date equals today's date  
-        $("#toDoList").append('<li class="list-group-item ind"><span style = "font-size:20px;">' + s[i].name + '</span><span style="font-size:20px;"></span><span style="font-size:20px;">  ' + (date.getMonth()+1) + '/' + date.getDate() + '<span><button class = "doneBtn indexBtn" id = sid_' + s[i]._id + '><span class="glyphicon glyphicon-ok"><span><button class = "removeBtn indexBtn" id = srm_' + s[i]._id + '><span class="glyphicon glyphicon-trash"></span></button></span>');
-            //$("#toDoList").append('<li class="list-group-item">' + '<span id="name">' + s[i].name + '</span><span id = "date">     ' + (date.getMonth()+1) + '/' + date.getDate() + '</span><a href="#" class="delItem">'
-         // + '<span class="glyphicon glyphicon-minus"></span></a><span id = "indexCheck"><input type="checkbox" class="checkbox" id = item_' + s[i]._id + '></span></li>');
+            // Date equals today's date  
+            $("#toDoList").append('<li class="list-group-item ind"><span style = "font-size:20px;">' + s[i].name + '</span><span style="font-size:20px;"></span><span style="font-size:20px;">  ' + (date.getMonth()+1) + '/' + date.getDate() + '<span><button class = "doneBtn indexBtn" id = sid_' + s[i]._id + '><span class="glyphicon glyphicon-ok"><span><button class = "removeBtn indexBtn" id = srm_' + s[i]._id + '><span class="glyphicon glyphicon-trash"></span></button></span>');
+                //$("#toDoList").append('<li class="list-group-item">' + '<span id="name">' + s[i].name + '</span><span id = "date">     ' + (date.getMonth()+1) + '/' + date.getDate() + '</span><a href="#" class="delItem">'
+             // + '<span class="glyphicon glyphicon-minus"></span></a><span id = "indexCheck"><input type="checkbox" class="checkbox" id = item_' + s[i]._id + '></span></li>');
+            console.log("#sid_" + s[i]._id + " isDone: " + s[i].isDone);
+            if(s[i].isDone == true){
+                console.log("yeee");
+                $("#sid_" + s[i]._id).css("color", "green");
+            }
         }
     }
+
+    calcPerc();
+    console.log("hey");
 }
 
 function changePer(n){
@@ -135,9 +148,19 @@ $(document).on('click', '.doneBtn', function() {
     } else {
         $("#" + opt + "id_" + id).css("color", "black"); 
     }
+
     var res, s;
     //console.log("change!!");
-    calcPerc();
+    if(opt[0] == 'i'){
+        todos.save(function(err){
+            calcPerc();
+        });
+    } else {
+        schedule.save(function(err){
+            calcPerc();
+        });
+    }
+    
     //console.log(todayTasks);
     //console.log(doneCounter);
 });
@@ -202,7 +225,6 @@ window.onload = function () {
                 if (!err) {
                     // Load was successful
                     run();
-                    changePer(0);
                 }
             });
             // Load was successful
