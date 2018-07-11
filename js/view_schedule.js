@@ -80,11 +80,11 @@ function run(){
         console.log("gg");
         */
         if(new Date(today.setHours(0,0,0,0)+ d*86400000).getTime() == new Date(date.setHours(0,0,0,0)).getTime()) {
-        $("#dataList").append('<li class="list-group-item">' + '<span id="subName">' + s[i].name + '</span><span id = "btn-sche"><button type = "button" class="scheduleBtn" id = "id_' + s[i]._id + '"><span class="glyphicon glyphicon-minus"></span></button></span></li>');
+        $("#dataList").append('<li class="list-group-item">' + '<span id="subName">' + s[i].name + '</span><span id = "btn-sche"><button type = "button" class="scheduleBtn" id = "id_' + s[i]._id + '"><span class="glyphicon glyphicon-trash"></span></button></span></li>');
         } else {
             d++;
             $("#dataList").append('</ul><ul class="date">' + (date.getMonth()+1) + "/" + date.getDate() + '</li>');
-            $("#dataList").append('<li class="list-group-item">' + '<span id="subName">' + s[i].name + '</span><span id = "btn-sche"><button type = "button" class="scheduleBtn" id = "id_' + s[i]._id + '"><span class="glyphicon glyphicon-minus"></span></button></span></li>');
+            $("#dataList").append('<li class="list-group-item">' + '<span id="subName">' + s[i].name + '</span><span id = "btn-sche"><button type = "button" class="scheduleBtn" id = "id_' + s[i]._id + '"><span class="glyphicon glyphicon-trash"></span></button></span></li>');
         
         //$("#dataList").append('</ul>');
         }

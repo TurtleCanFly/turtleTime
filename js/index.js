@@ -130,7 +130,7 @@ $(document).on('click', '.doneBtn', function() {
     console.log(end);
     if(end){
         //console.log('"#' + opt + "id_" + id + '"');
-        $('#' + opt + "id_" + id).css("color", "green");
+        $('#' + opt + "id_" + id).css("color", "#32CD32");
     } else {
         $("#" + opt + "id_" + id).css("color", "black"); 
     }
