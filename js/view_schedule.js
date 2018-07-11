@@ -14,7 +14,7 @@ $(document).on('change', '#examPicker', function(e) {
      } else if(sub == "數學競賽"){
         $(".mathComp").show();    
      } else if(sub == "資訊競賽"){
-
+        $(".codingComp").show();    
      } else {
         //return error
      }
@@ -82,12 +82,12 @@ function run(){
         if(new Date(today.setHours(0,0,0,0)+ d*86400000).getTime() == new Date(date.setHours(0,0,0,0)).getTime()) {
         // Date equals today's date 
             //console.log(date); 
-            $("#dataList").append('<tr><td style="font-size:40px;">' + s[i].name + '<button type = "button" class="scheduleBtn" id = "id_'+ s[i]._id + '"><span class = "glyphicon glyphicon-minus"></span></button></td></tr>');
+            $("#dataList").append('<tr><td style="font-size:25px;">' + s[i].name + '<button type = "button" class="scheduleBtn" id = "id_'+ s[i]._id + '"><span class = "glyphicon glyphicon-minus"></span></button></td></tr>');
         } else {
             d++;
             //console.log(date);
             $("#dataList").append('<li class="date">' + (date.getMonth()+1) + "/" + date.getDate() + '</li>');
-            $("#dataList").append('<tr><td style="font-size:40px;">' + s[i].name + '<button type = "button" class="scheduleBtn" id = "id_'+ s[i]._id + '"><span class = "glyphicon glyphicon-minus"></span></button></td></tr>');
+            $("#dataList").append('<tr><td style="font-size:25px;">' + s[i].name + '<button type = "button" class="scheduleBtn" id = "id_'+ s[i]._id + '"><span class = "glyphicon glyphicon-minus"></span></button></td></tr>');
         }
     }
 }
