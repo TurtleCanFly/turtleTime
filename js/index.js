@@ -20,7 +20,7 @@ function run(){
 	for(var i = 0 ; i < res.length; i++){
         //console.log(res[i]);
         var date = new Date(res[i].date);
-		$("#toDoList").append('<p class="list-group-item"><span id="subject">' + res[i].subject + '</span> - - <span id="name">' + res[i].name + '</span><span id = "date">     ' + (date.getMonth()+1) + '/' + date.getDate() + '</span><input type="checkbox" class="checkbox" id = item_' + res[i]._id + '></p>');
+		$("#toDoList").append('<p class="list-group-item">' + '<span id="name">' + res[i].name + '</span><span id = "date">     ' + (date.getMonth()+1) + '/' + date.getDate() + '</span><input type="checkbox" class="checkbox" id = item_' + res[i]._id + '></p>');
 	}
 }
 
@@ -52,17 +52,49 @@ $(document).on('change', '.checkbox', function() {
     
 });
 
-var dte = new Date();
+function submitSingle(){
+    var name = $("#itemName").val();
+    var bR = $("#beforeRemind").val();
+    var date = $("#datepicker").val();
+    date = new Date(date);
+    console.log(date - bR);
+    if(name != "" && bR != ""){
+        todos.insert({
+            name: name,
+            date: date - bR,
+            isDone: false
+        });
+        console.log(todos.find());
+        todos.save(function (err) {
+            if (!err) {
+                console.log("Oh nooooo! Something went wrong: " + err);
+            }
+        });
+    }
 
+    console.log($("#itemName").val() + ": " + $("#beforeRemind").val() + ", " + $("#datepicker").val());
+
+}
+
+var dte = new Date();
+/*
 for(var i = 0 ; i < 10; i++){
 	todos.insert({
-	subject: "Mathematics",
-	name: "AIME " + i,
+	name: "Math AIME " + i,
 	date: dte.getTime() + 86400000*i,
 	isDone: false
 	});
 }
-
-window.onload = function () { run(); }
+*/
+window.onload = function () { 
+    todos.load(function (err, tableStats, metaStats) {
+        if (!err) {
+            // Load was successful
+            run(); 
+        }
+    });
+    
+    
+}
 run();
 

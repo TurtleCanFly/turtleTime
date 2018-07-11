@@ -13,7 +13,7 @@
 <body>
 	<p id="p1">TurtlesCanFly</p>
 	
-	<button type="button" onclick="location.href = '../index.html';" class="btn btn-info" id="btn-back">回去</button>
+	
 	<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#singleAdd">Open Modal</button>
 	<div id="singleAdd" class="modal fade modal-xl" role="dialog">
 		<div class="modal-dialog">
@@ -25,7 +25,7 @@
 				<div class="modal-body">
 					<div class="form-group">
 						<label for="usr">名稱:</label>
-						<input type="text" class="form-control" id="projectName">
+						<input type="text" class="form-control" id="itemName">
 					</div>
 					<div class="form-group">
 						<label for="usr">日期:</label>
@@ -36,20 +36,25 @@
 						</script>
 						<input type="text" class="form-control" id="datepicker">
 					</div>
-					<div class="form-group">
-						<ul class="pagination">
-							<li><a href="#">1</a></li>
-							<li><a href="#">3</a></li>
-							<li><a href="#">7</a></li>
-							<label for="usr">日前提醒</label>
-						</ul>
-					</div>
+					<div class = "form-group">
+						<label for="usr">提前提醒（天）</label>
+						<select class="form-control" id="beforeRemind">
+							<option>0</option>
+						    <option>1</option>
+						    <option>3</option>
+						    <option>5</option>
+						    <option>7</option>
+					  	</select>
+				  	</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal" id="submit">Submit</button>
+					<button type="button" class="btn btn-default" onclick = "submitSingle();" data-dismiss="modal" id="submit">Submit</button>
 				</div>
 			</div>
 		</div>
 	</div>
+	
+	
+	<button type="button" onclick="location.href = '../index.html';" class="btn btn-info" id="btn-setup">回去</button>
 </body>
 </html>
