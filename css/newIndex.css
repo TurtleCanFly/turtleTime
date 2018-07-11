@@ -66,10 +66,7 @@
 #indexCheck{
 	float: right;
 }
-input[type=checkbox] {
-    display: inline;
-    vertical-align: right;
-}
+
 /*view_schedule.html*/
 #scheduleTopBar {
 	position: relative;
@@ -101,6 +98,7 @@ input[type=checkbox] {
 	overflow: scroll;
 }
 .scheduleBtn{
+<<<<<<< Updated upstream
 	vertical-align: right;
 	position: relative;
 	width: 25px;
@@ -109,8 +107,22 @@ input[type=checkbox] {
 	margin-left: 7.5px;
 	bottom: 2.5px;
 	left: 50px;
+=======
+	vertical-align: top;
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	font-size: 10px;
+	margin-left: 7.5px;
+	bottom: 5px;
+	left: 150px;
+>>>>>>> Stashed changes
 	z-index: 101;
 	border-radius: 12.5px;
+}
+.date{
+	font-size: 35px;
+	vertical-align: left;
 }
 /*reward.html*/
 #rewardTopBar {

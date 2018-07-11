@@ -69,17 +69,18 @@ function run(){
         return;
     }
     var today = new Date(s[0].date);
-    $("#dataList").append('<li class="date">' + (today.getMonth()+1) + "/" + today.getDate() + '</li>');
+    $("#dataList").append('<ul class="date">' + (today.getMonth()+1) + "/" + today.getDate() + '</li>');
     for(var i = 0 ; i < s.length; i++) {
         //console.log(s[i]);
         var date = new Date(s[i].date);
-        
+        /*
         console.log("hh");
         console.log(new Date(today.setHours(0,0,0,0)+ d*86400000));
         console.log(new Date(date.setHours(0,0,0,0)));
         console.log("gg");
-        
+        */
         if(new Date(today.setHours(0,0,0,0)+ d*86400000).getTime() == new Date(date.setHours(0,0,0,0)).getTime()) {
+<<<<<<< Updated upstream
         // Date equals today's date 
             //console.log(date); 
             $("#dataList").append('<tr><td style="font-size:25px;">' + s[i].name + '<button type = "button" class="scheduleBtn" id = "id_'+ s[i]._id + '"><span class = "glyphicon glyphicon-minus"></span></button></td></tr>');
@@ -88,7 +89,16 @@ function run(){
             //console.log(date);
             $("#dataList").append('<li class="date">' + (date.getMonth()+1) + "/" + date.getDate() + '</li>');
             $("#dataList").append('<tr><td style="font-size:25px;">' + s[i].name + '<button type = "button" class="scheduleBtn" id = "id_'+ s[i]._id + '"><span class = "glyphicon glyphicon-minus"></span></button></td></tr>');
+=======
+            // Date equals today's date 
+            $("#dataList").append('<li class="list-group-item">' + '<span id="subName">' + s[i].name + '</span><span id = "btn-sche"><button type = "button" class="scheduleBtn" id = "id_' + s[i]._id + '"><span class="glyphicon glyphicon-minus"></span></button></span></li>');
+        } else {
+            d++;
+            $("#dataList").append('</ul><ul class="date">' + (date.getMonth()+1) + "/" + date.getDate() + '</li>');
+            $("#dataList").append('<li class="list-group-item">' + '<span id="subName">' + s[i].name + '</span><span id = "btn-sche"><button type = "button" class="scheduleBtn" id = "id_' + s[i]._id + '"><span class="glyphicon glyphicon-minus"></span></button></span></li>');
+>>>>>>> Stashed changes
         }
+        //$("#dataList").append('</ul>');
     }
 }
 
