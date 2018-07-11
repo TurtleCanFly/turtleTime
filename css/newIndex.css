@@ -74,3 +74,20 @@
 	z-index: 101;
 	border-radius: 25px;
 }
+#dataList{
+	height: 300px;
+	position: absolutef;
+	overflow: scroll;
+}
+.scheduleBtn{
+	vertical-align: right;
+	position: relative;
+	width: 30px;
+	height: 30px;
+	font-size: 10px;
+	margin-left: 7.5px;
+	bottom: 10px;
+	left: 50px;
+	z-index: 101;
+	border-radius: 15px;
+}
