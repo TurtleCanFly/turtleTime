@@ -77,10 +77,15 @@
 #name {
 	font-size: 25px;
 }
-
-
-
-
+#singleAdd {
+	font-size: 40px;
+}
+#submit {
+	font-size: 40px;
+}
+#modalHeader {
+	font-size: 40px;
+}
 
 
 
