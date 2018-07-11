@@ -38,22 +38,32 @@ function run(){
 	for(var i = 0 ; i < res.length; i++){
         console.log(res[i]);
         var date = new Date(res[i].date);
+        /*
         console.log("hh");
         console.log(new Date().setHours(0, 0, 0, 0));
         console.log(date.setHours(0, 0, 0, 0));
         console.log("gg");
+        */
         if(new Date().setHours(0,0,0,0) == date.setHours(0,0,0,0)) {
         // Date equals today's date  
-        $("#toDoList").append('<li class="list-group-item">' + '<span style="font-size:25px;">' + res[i].name + '</span><span style="font-size:20px;">    ' + (date.getMonth()+1) + '/' + date.getDate() + '</span><span id = "indexCheck"><input type="checkbox" class="checkbox" id = item_' + res[i]._id + '></span></li>');
+        $("#toDoList").append('<li class="list-group-item ind"><span style = "font-size:20px;">' + res[i].name + '</span><span style="font-size:20px;">' + res[i].name + '</span><span style="font-size:20px;">  ' + (date.getMonth()+1) + '/' + date.getDate() + '<span><button class = "doneBtn indexBtn btn" id = irm_' + res[i]._id + '><span class="glyphicon glyphicon-ok"><span><button class = "removeBtn indexBtn btn" id = iid_' + res[i]._id + '><span class="glyphicon glyphicon-trash"></span></button></span>');
+        //$("#toDoList").append('<span style="font-size:20px;">' + res[i].name + '</span><span style="font-size:20px;">    ' + (date.getMonth()+1) + '/' + date.getDate());
+        //$("#toDoList").append('<li class="list-group-item">' + '<span style="font-size:25px;">' + res[i].name + '</span><span style="font-size:20px;">    ' + (date.getMonth()+1) + '/' + date.getDate() + '</span><span id = "indexCheck"><input type="checkbox" class="checkbox" id = item_' + res[i]._id + '></span></li>');
+
+        //$("#toDoList").append('<li><span id = "name"' + res[i].name + )
+        //$("#toDoList").append('<li>' + '<span id="name">' + res[i].name + '</span><span id = "date">    ' + (date.getMonth()+1) + '/' + date.getDate() + '</span><span id = "indexCheck"><a href="#" class = "delItem">' +
+          //'<span class="glyphicon glyphicon-minus"></span></a><input type="checkbox" class="checkbox" id = item_' + res[i]._id + '></span></li>');
+
         }
 	}
     for(var i = 0 ; i < s.length; i++){
-        //console.log(res[i]);
+        console.log(s[i]);
         var date = new Date(s[i].date);
-
         if(new Date().setHours(0,0,0,0) == date.setHours(0,0,0,0)) {
         // Date equals today's date  
-            $("#toDoList").append('<li class="list-group-item">' + '<span style="font-size:25px;">' + s[i].name + '</span><span style="font-size:20px;">     ' + (date.getMonth()+1) + '/' + date.getDate() + '</span><span id = "indexCheck"><input type="checkbox" class="checkbox" id = item_' + s[i]._id + '></span></li>');
+        $("#toDoList").append('<li class="list-group-item ind"><span style = "font-size:20px;">' + s[i].name + '</span><span style="font-size:20px;"></span><span style="font-size:20px;">  ' + (date.getMonth()+1) + '/' + date.getDate() + '<span><button class = "doneBtn indexBtn btn" id = srm_' + s[i]._id + '><span class="glyphicon glyphicon-ok"><span><button class = "doneBtn indexBtn btn" id = sid_' + s[i]._id + '><span class="glyphicon glyphicon-trash"></span></button></span>');
+            //$("#toDoList").append('<li class="list-group-item">' + '<span id="name">' + s[i].name + '</span><span id = "date">     ' + (date.getMonth()+1) + '/' + date.getDate() + '</span><a href="#" class="delItem">'
+         // + '<span class="glyphicon glyphicon-minus"></span></a><span id = "indexCheck"><input type="checkbox" class="checkbox" id = item_' + s[i]._id + '></span></li>');
         }
     }
 }
@@ -64,31 +74,25 @@ function changePer(n){
 }
 
 
-$(document).on('change', '.checkbox', function() {
-    var id = this.id;
-    id = id.substring(5);
-    var res = todos.find(id);
-    //console.log("change!!");
-    todos.updateById(id, {isDone: this.checked});
-    schedule.updateById(id, {isDone: this.checked});
+function calcPerc(){
     //console.log(res.isDone);
     var doneCounter = 0;
     var todayTasks = 0;
     res = todos.find();
     s = schedule.find();
-    console.log(res);
+    //console.log(res);
     var doneCounter = 0
     for(var i = 0 ; i < res.length; i++){
-    	if(res[i].isDone){
-    		doneCounter += 1;
-    	}
+        if(res[i].isDone){
+            doneCounter += 1;
+        }
         var date = new Date(res[i].date);
-        console.log(date);
+        //console.log(date);
         if(new Date().setHours(0,0,0,0) == date.setHours(0,0,0,0)) {
             // Date equals today's date  
             todayTasks += 1;
         }
-    		
+            
     }
     for(var i = 0 ; i < s.length; i++){
         if(s[i].isDone){
@@ -102,10 +106,62 @@ $(document).on('change', '.checkbox', function() {
         }
             
     }
-    console.log(todayTasks);
     var perc = doneCounter/todayTasks * 100;
     changePer(perc);
+}
+
+$(document).on('click', '.doneBtn', function() {
+    console.log("hey");
+    var id = this.id;
+    var opt = id[0];
+    id = id.substring(4);
+    console.log(id);
+
+    var res, s;
+    //console.log("change!!");
+    if(opt[0] == 'i'){
+        todos.updateById(id, {isDone: true});
+        console.log("one by one");
+    } else {
+        schedule.updateById(id, {isDone: true});
+        console.log("schedule");
+    }
+    
+    calcPerc();
+    //console.log(todayTasks);
+    //console.log(doneCounter);
 });
+
+$(document).on('click', '.removeBtn', function() {
+    console.log("hey");
+    var id = this.id;
+    var opt = id[0];
+    id = id.substring(4);
+    console.log(id);
+    var res, s;
+    //console.log("change!!");
+    if(opt[0] == 'i'){
+        todos.remove({_id: id});
+        console.log("one by one");
+        todos.save(function(err){
+            run();
+        });
+    } else {
+        schedule.remove({_id: id});
+        console.log("schedule");
+        schedule.save(function(err){
+            run();
+        });
+    }
+
+    calcPerc();
+    //console.log(todayTasks);
+    //console.log(doneCounter);
+    
+    
+});
+
+
 function submitSingle(){
     var name = $("#itemName").val();
     var bR = $("#beforeRemind").val();
@@ -127,7 +183,7 @@ function submitSingle(){
     }
     run();
     console.log($("#itemName").val() + ": " + $("#beforeRemind").val() + ", " + $("#datepicker").val());
-
+    calcPerc();
 }
 
 
