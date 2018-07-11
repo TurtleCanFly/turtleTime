@@ -60,7 +60,6 @@ function run(){
     s = schedule.find();
     var today = new Date();
     $("#dataList").empty();
-    $("#dataList").append('<li class="date">' + (today.getMonth()+1) + "/" + today.getDate() + '</li>');
     for(var i = 0 ; i < s.length; i++) {
         //console.log(res[i]);
         var date = new Date(s[i].date);

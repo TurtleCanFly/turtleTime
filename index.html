@@ -12,10 +12,15 @@
 	<script src="js/bootstrap.min.js"></script>
 </head>
 <body>
-	<ul class="nav navbar-nav">
-	</ul>
-	<button type="button" data-toggle="modal" data-target="#singleAdd" id="vS"><span class="glyphicon glyphicon-plus"></span></button> <!-- 增加 -->
-	<nav class="navbar navbar-inverse navbar-static-bot">
+	
+	
+	
+	<button type="button" data-toggle="modal" data-target="#singleAdd" class="vS"><span class="glyphicon glyphicon-plus"></span></button> <!-- 增加 -->
+	
+	<button class="btn btn-default icon sA" onclick="location.href='html/view_schedule.html'"><span class="indexG glyphicon glyphicon-th-list"></span></button> <!-- 規劃 -->
+	
+
+	<nav id = "topBar" class="navbar navbar-inverse navbar-static-top">
 	  <div class="container-fluid"> 
 		    <div id="singleAdd" class="modal fade modal-xl" role="dialog">
 				<div class="modal-dialog">
@@ -56,27 +61,18 @@
 					</div>
 				</div>
 			</div>
-		
-		
-
-
-	    <ul class="nav navbar-nav navbar-right">
-		  	<a href = "html/view_schedule.html">
-				<button class="btn btn-default icon" id="sA"><span class="indexG glyphicon glyphicon-th-list"></span></button> <!-- 規劃 -->
-				</a>
-		</ul>
-		
-		
-	    
 	</nav>
 
-	
-		</ul>
-	<div id = "indexWrapper">
-		<ul id="toDoList"></ul>
+	</ul>
+		<div id = "indexWrapper">
+			<ul id="toDoList"></ul>
+		</div>
+
+	<div id = "turtleWrapper">
 		<img src="img/logo_large.png" id="turtle">
 		<img src="img/loadingTurtle.png" id="turtleLoad">
 	</div>
+
 	
 	
 	

@@ -14,12 +14,20 @@
     <script src="../js/bootstrap-select.min.js"></script>
 </head>
 <body>
-	<p id="p1">TurtlesCanfly</p>
-	<button type="button" onclick="location.href = '../index.html';" class="btn btn-info" id="btn-back">回去</button>
+	<nav id = "topBar" class="navbar navbar-inverse navbar-static-top">
+	</nav>
+	
+	
+	<button class = "vS" type="button" data-toggle="modal" data-target="#singleAdd"><span class="glyphicon glyphicon-plus"></span></button> <!-- 增加 -->
+
+	<button class="sA" onclick="location.href='../index.html'"><span class="glyphicon glyphicon-chevron-left"></span></button> <!-- 規劃 -->
+
+
 	<ul id = "dataList">
 	</ul>
-	<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#singleAdd">Open Modal</button>
+
 	<div id="singleAdd" class="modal fade modal-xl" role="dialog">
+		
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
