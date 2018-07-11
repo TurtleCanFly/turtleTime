@@ -1,7 +1,7 @@
 <html>
 <head>
     <title></title>
-    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <link rel="stylesheet" type="text/css" href="../css/newIndex.css">
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../css/jquery-ui.min.css">
     <link rel="stylesheet" type="text/css" href="../css/bootstrap-select.min.css">
@@ -14,63 +14,59 @@
     <script src="../js/bootstrap-select.min.js"></script>
 </head>
 <body>
-	<nav id = "topBar" class="navbar navbar-inverse navbar-static-top"></nav>
-	
-	<button type="button" data-toggle="modal" data-target="#singleAdd" id="newExam"><span class="glyphicon glyphicon-plus"></span></button> <!-- 增加 -->
+	<nav id = "scheduleTopBar" class="navbar navbar-inverse navbar-static-top"></nav>
+	<button type="button" data-toggle="modal" data-target="#complexAdd" id="btn-complexAdd"><span class="glyphicon glyphicon-plus"></span></button> <!-- 增加 -->
 
-	<button id="back" onclick="location.href='../index.html'"><span class="glyphicon glyphicon-chevron-left"></span></button> <!-- 規劃 -->
+	<button id="btn-back" onclick="location.href='../index.html'"><span class="glyphicon glyphicon-chevron-left"></span></button> <!-- 規劃 -->
 
 	<ul id = "dataList">
 	</ul>
 
-	<div id="singleAdd" class="modal fade modal-xl" role="dialog">
-		
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title" id="modalHeader">新增資料</h4>
+	<div id="complexAdd" class="modal fade modal-sm" role="dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title" id="modalHeader">新增資料</h4>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<label for="usr">考試名稱:</label>
+					<input type="text" class="form-control" id="examName">
 				</div>
-				<div class="modal-body">
-					<div class="form-group">
-						<label for="usr">考試名稱:</label>
-						<input type="text" class="form-control" id="examName">
-					</div>
-					<div class="form-group">
-						<label for="usr">考試日期:</label>
-						<script type="text/javascript">
-    						$(function () {
-        						console.log($("#datepicker").datepicker());
-    						});
-						</script>
-						<input type="date" class="form-control" id="datepicker">
-					</div>
-					<div class="form-group">
-						<label for="usr">考試類型:</label>
-						<select id = "examPicker" class="selectpicker">
-							<option>一般科目</option>
-							<option>數學競賽</option>
-							<option>資訊競賽</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<label for="usr">準備科目:</label>
-						<select id  = "subjectPicker" class="selectpicker" multiple>
-							<option class="subO singleExam">國文</option>
-							<option class="subO singleExam">英文</option>
-							<option class="subO singleExam">數學</option>
-							<option class="subO singleExam">自然</option>
-							<option class="subO singleExam">社會</option>
-							<option class="subO mathComp">幾何</option>
-							<option class="subO mathComp">代數</option>
-							<option class="subO mathComp">數論</option>
-							<option class="subO mathComp">排列組合</option>
-						</select>
-					</div>
+				<div class="form-group">
+					<label for="usr">考試日期:</label>
+					<script type="text/javascript">
+						$(function () {
+    						console.log($("#datepicker").datepicker());
+						});
+					</script>
+					<input type="date" class="form-control" id="datepicker">
 				</div>
-				<div class="modal-footer">
-					<button type="button" id = "scheduleSubmit" class="btn btn-default" data-dismiss="modal" id="submit">Submit</button>
+				<div class="form-group">
+					<label for="usr">考試類型:</label>
+					<select id = "examPicker" class="selectpicker" title="請選擇...">
+						<option>一般科目</option>
+						<option>數學競賽</option>
+						<option>資訊競賽</option>
+					</select>
 				</div>
+				<div class="form-group">
+					<label for="usr">準備科目:</label>
+					<select id = "subjectPicker" class="selectpicker" multiple>
+						<option class="subO singleExam">國文</option>
+						<option class="subO singleExam">英文</option>
+						<option class="subO singleExam">數學</option>
+						<option class="subO singleExam">自然</option>
+						<option class="subO singleExam">社會</option>
+						<option class="subO mathComp">幾何</option>
+						<option class="subO mathComp">代數</option>
+						<option class="subO mathComp">數論</option>
+						<option class="subO mathComp">排列組合</option>
+					</select>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" id = "scheduleSubmit" class="btn btn-default" data-dismiss="modal" id="submit">Submit</button>
 			</div>
 		</div>
 	</div>

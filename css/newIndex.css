@@ -1,3 +1,4 @@
+/*index.html*/
 #indexTopBar {
 	position: relative;
 	height: 100px;
@@ -24,7 +25,7 @@
 #turtleWrapper {
 	margin: 0;
 	text-align: center;
-	width: 370px;
+	width: 360px;
 }
 #turtleLoad {
 	position: relative;
@@ -39,4 +40,28 @@
   	height: 188px;
   	z-index: 2;
   	margin: 0 0 0 0;
+}
+/*view_schedule.html*/
+#scheduleTopBar {
+	position: relative;
+	height: 100px;
+	margin-bottom: -25px;
+	z-index: 100;
+}
+#btn-complexAdd {
+	position: relative;
+	width: 50px;
+	height: 50px;
+	margin-left: 12.5px;
+	margin-bottom: 25px;
+	z-index: 101;
+	border-radius: 25px;
+}
+#btn-back {
+	position: relative;
+	width: 50px;
+	height: 50px;
+	margin-left: 12.5px;
+	z-index: 101;
+	border-radius: 25px;
 }
