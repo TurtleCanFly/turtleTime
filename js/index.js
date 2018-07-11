@@ -69,7 +69,7 @@ function run(){
 }
 
 function changePer(n){
-	$("#turtle").css("clip", "rect(" + (188*(1 - (n)/100) + 270) +", 300px, 188px, 0)"); //PLEASE DO NOT CHANGE THE NUMBERS IT TOOK HALF AN HOUR TO GET THE RIGHT NUMBERS
+	$("#turtle").css("clip", "rect(" + 188*(1 - (n)/100) +", 300px, 188px, 0)"); //PLEASE DO NOT CHANGE THE NUMBERS IT TOOK HALF AN HOUR TO GET THE RIGHT NUMBERS
 	//console.log(n);
 }
 
@@ -108,6 +108,7 @@ function calcPerc(){
     }
     console.log("Tasks: " + todayTasks);
     var perc = doneCounter/todayTasks * 100;
+    console.log(perc + "%");
     changePer(perc);
 }
 
@@ -136,8 +137,6 @@ $(document).on('click', '.doneBtn', function() {
     }
     var res, s;
     //console.log("change!!");
-    
-    
     calcPerc();
     //console.log(todayTasks);
     //console.log(doneCounter);
