@@ -76,7 +76,7 @@
 }
 #dataList{
 	height: 300px;
-	position: absolutef;
+	position: absolute;
 	overflow: scroll;
 }
 .scheduleBtn{
