@@ -18,7 +18,9 @@ $("#btn-left").click(function(){
 function run(){
 	res = todos.find();
 	for(var i = 0 ; i < res.length; i++){
-		$("#toDoList").append('<p class="list-group-item"><span id="subject">' + res[i].subject + '</span> - - <span id="name">' + res[i].name + '</span><input type="checkbox" class="checkbox" id = item_' + res[i]._id + '></p>');
+        //console.log(res[i]);
+        var date = new Date(res[i].date);
+		$("#toDoList").append('<p class="list-group-item"><span id="subject">' + res[i].subject + '</span> - - <span id="name">' + res[i].name + '</span><span id = "date">     ' + (date.getMonth()+1) + '/' + date.getDate() + '</span><input type="checkbox" class="checkbox" id = item_' + res[i]._id + '></p>');
 	}
 }
 
@@ -32,9 +34,9 @@ $(document).on('change', '.checkbox', function() {
     var id = this.id;
     id = id.substring(5);
     var res = todos.find(id);
-    console.log("change!!");
+    //console.log("change!!");
     todos.updateById(id, {isDone: this.checked});
-    console.log(res.isDone);
+    //console.log(res.isDone);
     var doneCounter = 0;
     res = todos.find();
     console.log(res);
@@ -50,11 +52,13 @@ $(document).on('change', '.checkbox', function() {
     
 });
 
+var dte = new Date();
+
 for(var i = 0 ; i < 10; i++){
 	todos.insert({
-	subject: "math",
-	name: "AIME",
-	date: new Date(),
+	subject: "Mathematics",
+	name: "AIME " + i,
+	date: dte.getTime() + 86400000*i,
 	isDone: false
 	});
 }
