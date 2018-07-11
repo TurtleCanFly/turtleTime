@@ -9,6 +9,7 @@
     <script src="../js/jquery-2.2.3.min.js"></script>
     <script src="../js/jquery-ui.min.js"></script>
     <script src="../js/index.js"></script>
+    <script src="../js/change_schedule.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/bootstrap-select.min.js"></script>
 </head>
@@ -59,7 +60,7 @@
 				<div class="modal-body">
 					<div class="form-group">
 						<label for="usr">考試名稱:</label>
-						<input type="text" class="form-control" id="projectName">
+						<input type="text" class="form-control" id="examName">
 					</div>
 					<div class="form-group">
 						<label for="usr">考試日期:</label>
@@ -72,7 +73,7 @@
 					</div>
 					<div class="form-group">
 						<label for="usr">考試類型:</label>
-						<select class="selectpicker">
+						<select id = "examPicker" class="selectpicker">
 							<option>一般科目</option>
 							<option>數學競賽</option>
 							<option>資訊競賽</option>
@@ -80,25 +81,21 @@
 					</div>
 					<div class="form-group">
 						<label for="usr">準備科目:</label>
-						<select class="selectpicker" multiple>
-							<option class="singleExam">國文</option>
-							<option class="singleExam">英文</option>
-							<option class="singleExam">數學</option>
-							<option class="singleExam">自然</option>
-							<option class="singleExam">社會</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<label for="usr">準備科目:</label>
-						<select class="selectpicker" multiple>
-							<option>Mustard</option>
-							<option>Ketchup</option>
-							<option>Relish</option>
+						<select id  = "subjectPicker" class="selectpicker" multiple>
+							<option class="subO singleExam">國文</option>
+							<option class="subO singleExam">英文</option>
+							<option class="subO singleExam">數學</option>
+							<option class="subO singleExam">自然</option>
+							<option class="subO singleExam">社會</option>
+							<option class="subO mathComp">幾何</option>
+							<option class="subO mathComp">代數</option>
+							<option class="subO mathComp">數論</option>
+							<option class="subO mathComp">排列組合</option>
 						</select>
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal" id="submit">Submit</button>
+					<button type="button" id = "scheduleSubmit" class="btn btn-default" data-dismiss="modal" id="submit">Submit</button>
 				</div>
 			</div>
 		</div>

@@ -11,9 +11,24 @@ Data structure:
 */
 
 
-$("#btn-left").click(function(){
-  alert("hello");
+$(document).on('change', '#examPicker', function(e) {
+     //e.preventDefault();
+     var sub = $(".selectpicker").val();
+     $("#subjectPicker option:selected").removeAttr("selected");
+     console.log("Hey")
+     $(".subO").hide();
+     if(sub == "一般科目"){
+        $(".singleExam").show();
+     } else if(sub == "數學競賽"){
+        $(".mathComp").show();    
+     } else if(sub == "資訊競賽"){
+
+     } else {
+        //return error
+     }
+     
 });
+
 
 function run(){
 	res = todos.find();
