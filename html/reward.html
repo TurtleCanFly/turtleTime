@@ -20,18 +20,32 @@
 	<br>
 
 	<canvas id="game" width="365" height="450" style="top:0;left:0;"></canvas>
+	<img src="../img/icon.png" id="turtleGameObject"/>
 	<script>
+		$("#turtleGameObject").hide();
+		var obs = new Array(5);
+		for (var i = 0; i < 5; i++) {
+			obs[i] = new Array(5);
+		}
+		for (var i = 0; i < 5; i++) {
+			for (var j = 0; j < 5; j++) {
+				obs[i][j] = 1;
+			}
+		}
+		var x = 100;
 		function draw() {
 			var canvas = document.getElementById("game");
 			if (canvas.getContext) {
 				var ctx = canvas.getContext("2d");
+				ctx.clearRect(0, 0, 365, 450);
 				ctx.beginPath();
-				ctx.fillStyle = "rgb(255, 0, 0)";
-				ctx.fillRect(0, 0, 365, 450);
+				ctx.fillStyle = "rgb(0, 255, 255)";
+				ctx.fillRect(x-15, 410, 100, 20);
 				ctx.closePath();
 			}
 		}
-		draw();
+		var intervalID = setInterval(draw,1000 / 30);
+		
 	</script>
 </body>
 </html>
