@@ -1,3 +1,8 @@
+.glyphicon {
+	width: 150px;
+	height: 150px;
+	background-size: 150px;
+}
 
 .navbar {
   position: fixed;
@@ -10,6 +15,10 @@
 }
 .list-group-item{
 	height: 150px;
+	vertical-align: middle;
+}
+
+#indexWrapper{
 	vertical-align: middle;
 }
 
@@ -34,7 +43,6 @@
 	z-index: 1;
 	width:750px;
 	height:auto;
-	
 }
 
 .indexbtn{
@@ -42,6 +50,7 @@
 }
 
 #toDoList {
+	display: block;
 	margin:30px;
 	font-size:40px;
 	height:500px;
