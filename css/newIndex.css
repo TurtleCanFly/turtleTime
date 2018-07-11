@@ -157,7 +157,7 @@
 #btn-left {
 	position: absolute;
 	left: 5px;
-	top: 550px;
+	top: 520px;
 	width: 40px;
 	height: 40px;
 	z-index: 101;
@@ -167,8 +167,8 @@
 }
 #btn-right {
 	position: absolute;
-	left: 340px;
-	top: 550px;
+	left: 320px;
+	top: 520px;
 	width: 40px;
 	height: 40px;
 	z-index: 101;
