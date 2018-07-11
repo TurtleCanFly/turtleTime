@@ -134,11 +134,33 @@
 	height: 50px;
 }
 
+.icon {
+	font-size: 60px;
+	margin: 30px;
+	padding: 20px;
+}
 
+#sA {
+	margin-right: 40;
+}
 
+#turtleLoad {
+	width: 750px;
+  	height: 469.16px;
+  	position: absolute;
+  	top: 50%;
+  	left: 50%;
+  	margin: -234.58px 0 0 -375px;
+}
 
-
-
+#turtle {
+	width: 750px;
+  	height: 469.16px;
+  	position: absolute;
+  	top: 50%;
+  	left: 50%;
+  	margin: -234.58px 0 0 -375px;
+}
 
 
 
