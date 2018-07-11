@@ -80,25 +80,14 @@ function run(){
         console.log("gg");
         */
         if(new Date(today.setHours(0,0,0,0)+ d*86400000).getTime() == new Date(date.setHours(0,0,0,0)).getTime()) {
-<<<<<<< Updated upstream
-        // Date equals today's date 
-            //console.log(date); 
-            $("#dataList").append('<tr><td style="font-size:25px;">' + s[i].name + '<button type = "button" class="scheduleBtn" id = "id_'+ s[i]._id + '"><span class = "glyphicon glyphicon-minus"></span></button></td></tr>');
-        } else {
-            d++;
-            //console.log(date);
-            $("#dataList").append('<li class="date">' + (date.getMonth()+1) + "/" + date.getDate() + '</li>');
-            $("#dataList").append('<tr><td style="font-size:25px;">' + s[i].name + '<button type = "button" class="scheduleBtn" id = "id_'+ s[i]._id + '"><span class = "glyphicon glyphicon-minus"></span></button></td></tr>');
-=======
-            // Date equals today's date 
-            $("#dataList").append('<li class="list-group-item">' + '<span id="subName">' + s[i].name + '</span><span id = "btn-sche"><button type = "button" class="scheduleBtn" id = "id_' + s[i]._id + '"><span class="glyphicon glyphicon-minus"></span></button></span></li>');
+        $("#dataList").append('<li class="list-group-item">' + '<span id="subName">' + s[i].name + '</span><span id = "btn-sche"><button type = "button" class="scheduleBtn" id = "id_' + s[i]._id + '"><span class="glyphicon glyphicon-minus"></span></button></span></li>');
         } else {
             d++;
             $("#dataList").append('</ul><ul class="date">' + (date.getMonth()+1) + "/" + date.getDate() + '</li>');
             $("#dataList").append('<li class="list-group-item">' + '<span id="subName">' + s[i].name + '</span><span id = "btn-sche"><button type = "button" class="scheduleBtn" id = "id_' + s[i]._id + '"><span class="glyphicon glyphicon-minus"></span></button></span></li>');
->>>>>>> Stashed changes
-        }
+        
         //$("#dataList").append('</ul>');
+        }
     }
 }
 
@@ -112,7 +101,7 @@ $(document).on('click', '.scheduleBtn', function(){
     schedule.save(function(err,tableStats, metaStats){
         run();
     });
-})
+});
 
 
 window.onload = function () { 
@@ -127,5 +116,4 @@ window.onload = function () {
             // Load was successful
         }
     });
-}
-run(); 
+};
