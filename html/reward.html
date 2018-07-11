@@ -20,8 +20,18 @@
 	<br>
 
 	<canvas id="game" width="365" height="450" style="top:0;left:0;"></canvas>
+	<button id="btn-left"><span class="glyphicon glyphicon-triangle-left">
+	</span></button>
+	<button id="btn-right"><span class="glyphicon glyphicon-triangle-right">
+	</span></button>
 	<img src="../img/icon.png" id="turtleGameObject"/>
 	<script>
+		$("#btn-left").mousedown(function(){
+			x = x-10;
+		});
+		$("#btn-right").mousedown(function(){
+			x = x+10;
+		});
 		function hasCollided(i, j){
 			if (turtleY <= (30*j + 78) && turtleY >= (30*j)
 				&& ((turtleX <= (73*i + 71) && turtleX >= (73*i))
@@ -123,7 +133,6 @@
 			}
 		}
 		var intervalID = setInterval(draw, 1000/30);
-		$("body").on("mousedown",onMouseDown);
 	</script>
 </body>
 </html>

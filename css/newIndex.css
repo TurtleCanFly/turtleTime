@@ -157,3 +157,25 @@
 	width: 32px;
 	height: 32px;
 }
+#btn-left {
+	position: absolute;
+	left: 5px;
+	top: 550px;
+	width: 20px;
+	height: 20px;
+	z-index: 101;
+	border-radius: 10px;
+	font-size: 10px;
+	padding: 0px;
+}
+#btn-right {
+	position: absolute;
+	left: 340px;
+	top: 550px;
+	width: 20px;
+	height: 20px;
+	z-index: 101;
+	border-radius: 10px;
+	font-size: 10px;
+	padding: 0px;
+}
