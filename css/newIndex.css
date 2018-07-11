@@ -21,3 +21,15 @@
 	z-index: 101;
 	border-radius: 25px;
 }
+#turtleLoad {
+	position: relative;
+	width: 750px;
+  	height: 469.16px;
+  	margin: 0 0 0 0;
+}
+#turtle {
+	position: absolute;
+	width: 750px;
+  	height: 469.16px;
+  	margin: 0 0 0 0;
+}
