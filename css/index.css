@@ -3,6 +3,11 @@
 	margin: 0 auto;
 }
 
+.list-group-item{
+	height: 150px;
+	vertical-align: middle;
+}
+
 #p1 {
 	border-left: 6px solid lavender;
     background-color: ghostwhite;
@@ -27,6 +32,10 @@
 	
 }
 
+.indexbtn{
+	font-size: 50px;
+}
+
 #toDoList {
 	margin:30px;
 	font-size:40px;
@@ -38,33 +47,54 @@
 	text-align: center;
 	font-size:40px;
 }
-#btn-setup {
-	margin: 30px;
-	text-align: center;
-	font-size:40px;
-}
-#btn-view {
-	margin: 30px;
-	text-align: center;
-	font-size:40px;
-}
+
 #btn-left {
 	position: absolute;
+<<<<<<< Updated upstream
 	top: 95%;
+	left: 90%;
+=======
+	top: 93%;
 	right: 90%;
+>>>>>>> Stashed changes
 	width:100px;
 	height:100px;
 	border-radius: 50px;
 	font-family: 40px;
+	font-size: 50px;
 }
 #btn-right {
 	position: absolute;
+<<<<<<< Updated upstream
 	top: 95%;
+	right: 90%;
+=======
+	top: 93%;
 	left: 90%;
+>>>>>>> Stashed changes
 	width:100px;
 	height:100px;
 	border-radius: 50px;
 	font-family: 40px;
+	font-size: 50px;
+}
+#btn-setup{
+	position: absolute;
+	top: 20%;
+	left: 9.5%;
+	width:800px;
+	height:300px;
+	border-radius: 15px 50px;
+	font-size: 100px;
+}
+#btn-view{
+	position: absolute;
+	top: 60%;
+	left: 9.5%;
+	width:800px;
+	height:300px;
+	border-radius: 15px 50px;
+	font-size: 100px;
 }
 .checkbox {
 	float: right;
@@ -75,8 +105,9 @@
 	font-size: 50px;
 }
 #name {
-	font-size: 25px;
+	font-size: 30px;
 }
+<<<<<<< HEAD
 #singleAdd {
 	font-size: 40px;
 }
@@ -85,6 +116,23 @@
 }
 #modalHeader {
 	font-size: 40px;
+=======
+
+
+/*view_schedule*/
+.date {
+	font-size: 50px;
+}
+
+.item {
+	font-size: 50px;
+}
+
+.delete {
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+>>>>>>> origin/master
 }
 
 
@@ -96,14 +144,3 @@
 
 
 
-
-
-
-
-
-
-
-
-	]
-
-}
