@@ -40,7 +40,7 @@ function run(){
         var date = new Date(res[i].date);
         if(new Date().setHours(0,0,0,0) == date.setHours(0,0,0,0)) {
         // Date equals today's date  
-        $("#toDoList").append('<p class="list-group-item">' + '<span id="name">' + res[i].name + '</span><span id = "date">     ' + (date.getMonth()+1) + '/' + date.getDate() + '</span><input type="checkbox" class="checkbox" id = item_' + res[i]._id + '></p>');
+        $("#toDoList").append('<p class="list-group-item">' + '<span id="name">' + res[i].name + '</span><span id = "date">    ' + (date.getMonth()+1) + '/' + date.getDate() + '</span><input type="checkbox" class="checkbox" id = item_' + res[i]._id + '></p>');
         }
 	}
     for(var i = 0 ; i < s.length; i++){
