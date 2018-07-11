@@ -22,6 +22,27 @@
 	<canvas id="game" width="365" height="450" style="top:0;left:0;"></canvas>
 	<img src="../img/icon.png" id="turtleGameObject"/>
 	<script>
+
+		function hasCollided(i, j){
+			if(turtleX < 73*i + 71 && turtleY > 30*j + 28){// UR
+				return true;
+				console.log("true");
+			}
+			if(turtleX < 73*i + 71 && turtleY < 30*j){ //LD
+				return true;
+				console.log("true");
+			}	
+			if(turtleX + 30 < 73*i + 71 && turtleX + 30 > 73 * i && turtleY < j * 30 + 50 && turtleY > j * 30 + 78){ UR
+				return true;
+				console.log("true");
+			}
+			if(turtleX + 30 < 73*i + 71 && turtleX + 30 > 73 * i && turtleY + 30 < j * 30 + 50 && turtleY + 30 > j * 30 + 78){ LR
+				return true;
+				console.log("true");
+			}
+			return false;
+		}
+
 		$("#turtleGameObject").hide();
 		var obs = new Array(5);
 		for (var i = 0; i < 5; i++) {
@@ -35,9 +56,11 @@
 		var x = 100;
 		var turtleX = 100;
 		var turtleY = 380;
-		var v = 20;
+		var v = 1;
 		var vx = Math.random() * v;
 		var vy = Math.sqrt(v*v-vx*vx) * -1;
+		var drawing = false;
+		var fingerPos = { x:0, y:0 };
 		function draw() {
 			var canvas = document.getElementById("game");
 			if (canvas.getContext) {
@@ -46,10 +69,15 @@
 				ctx.clearRect(0, 0, 365, 450);
 				ctx.beginPath();
 				ctx.fillStyle = "rgb(0, 255, 255)";
-				ctx.fillRect(x-15, 410, 100, 20);
+				ctx.fillRect(x-15, 410, 100, 20); //(x-15, 410) width 100, height 20
+				ctx.fillRect(turtleX, turtleY , 5, 5);
+				ctx.fillRect(turtleX + 25, turtleY, 5, 5);
+				ctx.fillRect(turtleX, turtleY+ 25, 5, 5);
+				ctx.fillRect(turtleX+ 25, turtleY+ 25, 5, 5);
 				for (var i = 0; i < 5; i++) {
 					for (var j = 0; j < 5; j++) {
-						if (obs[i][j] == 1) {
+						if (obs[i][j]) {
+							if(hasCollided(i, j)) {console.log("yes"); obs[i][j] = false;};
 							ctx.fillRect(i*73, 50+j*30, 71, 28);
 							ctx.fillStyle = "rgb(" + (i*50) + ", " + (255-i*15) + ", " + (255-j*15) + ")";
 						}
@@ -76,8 +104,7 @@
 				}
 			}
 		}
-		var intervalID = setInterval(draw,1000 / 30);
-
+		var intervalID = setInterval(draw, 1000/30);
 	</script>
 </body>
 </html>
