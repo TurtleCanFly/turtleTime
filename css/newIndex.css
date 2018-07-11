@@ -30,6 +30,12 @@
 	z-index: 101;
 	border-radius: 25px;
 }
+#indexWrapper{
+	position: relative;
+	margin: 10px;
+	padding-right: 30px;
+	text-align: left;
+}
 #turtleWrapper {
 	margin: 0;
 	text-align: center;
@@ -48,6 +54,13 @@
   	height: 188px;
   	z-index: 2;
   	margin: 0 0 0 0;
+}
+#indexCheck{
+	float: right;
+}
+input[type=checkbox] {
+    display: inline;
+    vertical-align: right;
 }
 /*view_schedule.html*/
 #scheduleTopBar {

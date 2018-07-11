@@ -44,7 +44,7 @@ function run(){
         console.log("gg");
         if(new Date().setHours(0,0,0,0) == date.setHours(0,0,0,0)) {
         // Date equals today's date  
-        $("#toDoList").append('<p class="list-group-item">' + '<span id="name">' + res[i].name + '</span><span id = "date">    ' + (date.getMonth()+1) + '/' + date.getDate() + '</span><input type="checkbox" class="checkbox" id = item_' + res[i]._id + '></p>');
+        $("#toDoList").append('<li class="list-group-item">' + '<span id="name">' + res[i].name + '</span><span id = "date">    ' + (date.getMonth()+1) + '/' + date.getDate() + '</span><span id = "indexCheck"><input type="checkbox" class="checkbox" id = item_' + res[i]._id + '></span></li>');
         }
 	}
     for(var i = 0 ; i < s.length; i++){
@@ -53,7 +53,7 @@ function run(){
 
         if(new Date().setHours(0,0,0,0) == date.setHours(0,0,0,0)) {
         // Date equals today's date  
-            $("#toDoList").append('<p class="list-group-item">' + '<span id="name">' + s[i].name + '</span><span id = "date">     ' + (date.getMonth()+1) + '/' + date.getDate() + '</span><input type="checkbox" class="checkbox" id = item_' + s[i]._id + '></p>');
+            $("#toDoList").append('<li class="list-group-item">' + '<span id="name">' + s[i].name + '</span><span id = "date">     ' + (date.getMonth()+1) + '/' + date.getDate() + '</span><span id = "indexCheck"><input type="checkbox" class="checkbox" id = item_' + s[i]._id + '></span></li>');
         }
     }
 }
