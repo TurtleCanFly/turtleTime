@@ -64,8 +64,11 @@ $(document).on('click', "#scheduleSubmit", function(e){
 function run(){
     var d = 0;
     s = schedule.find();
-    var today = new Date();
     $("#dataList").empty();
+    if(s.length <= 0){
+        return;
+    }
+    var today = new Date(s[0].date);
     $("#dataList").append('<li class="date">' + (today.getMonth()+1) + "/" + today.getDate() + '</li>');
     for(var i = 0 ; i < s.length; i++) {
         //console.log(s[i]);
@@ -89,7 +92,7 @@ function run(){
     }
 }
 
-$(document).on('click', '.scheduleButton', function(){
+$(document).on('click', '.scheduleBtn', function(){
     var id = this.id;
     id = id.substring(3);
     console.log(id);
