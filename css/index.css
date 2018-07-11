@@ -156,7 +156,7 @@
 	height: 50px;
 }
 
-.vS {
+#vS {
 	position: absolute;
 	top: 150px;
 	font-size: 50px;
@@ -169,7 +169,7 @@
 	z-index: 10000;
 }
 
-.sA {
+#sA {
 	position: absolute;
 	top: 300px;
 	font-size: 50px;

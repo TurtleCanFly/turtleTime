@@ -4,7 +4,7 @@
     <link rel="icon" href="img/icon.png" type="image/ico" />
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
-	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="css/newIndex.css">
 	<script src="js/fdb-all.min.js" type="text/javascript"></script>
     <script src="js/jquery-2.2.3.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
@@ -12,71 +12,56 @@
 	<script src="js/bootstrap.min.js"></script>
 </head>
 <body>
-	
-	
-	
-	<button type="button" data-toggle="modal" data-target="#singleAdd" class="vS"><span class="glyphicon glyphicon-plus"></span></button> <!-- 增加 -->
-	
-	<button class="btn btn-default icon sA" onclick="location.href='html/view_schedule.html'"><span class="indexG glyphicon glyphicon-th-list"></span></button> <!-- 規劃 -->
-	
-
-	<nav id = "topBar" class="navbar navbar-inverse navbar-static-top">
-	  <div class="container-fluid"> 
-		    <div id="singleAdd" class="modal fade modal-xl" role="dialog">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal">&times;</button>
-							<h4 class="modal-title" id="modalHeader">新增資料</h4>
+	<nav id = "topBar" class="navbar navbar-inverse navbar-static-top"></nav>
+	<button type="button" data-toggle="modal" data-target="#singleAdd" id="vS"><span class="glyphicon glyphicon-plus"></span></button> <!-- 增加 -->
+	<button class="btn btn-default icon" onclick="location.href='html/view_schedule.html'" id="sA"><span class="glyphicon glyphicon-th-list"></span></button> <!-- 規劃 -->
+	<div class="container-fluid"> 
+		<div id="singleAdd" class="modal fade modal-xl" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title" id="modalHeader">新增資料</h4>
+					</div>
+					<div class="modal-body">
+						<div class="form-group">
+							<label for="usr">名稱:</label>
+							<input type="text" class="form-control" id="itemName">
 						</div>
-						<div class="modal-body">
-							<div class="form-group">
-								<label for="usr">名稱:</label>
-								<input type="text" class="form-control" id="itemName">
-							</div>
-							<div class="form-group">
-								<label for="usr">日期:</label>
-								<input type="date" class="form-control" id="datepicker">
-								<script type="text/javascript">
-		    						$(function () {
-		        						$("#datepicker").datepicker();
-		    						});
-								</script>
-								
-							</div>
-							<div class = "form-group">
-								<label for="usr">提前提醒（天）</label>
-								<select class="form-control" id="beforeRemind">
-									<option>0</option>
-								    <option>1</option>
-								    <option>3</option>
-								    <option>5</option>
-								    <option>7</option>
-							  	</select>
-						  	</div>
+						<div class="form-group">
+							<label for="usr">日期:</label>
+							<input type="date" class="form-control" id="datepicker">
+							<script type="text/javascript">
+	    						$(function () {
+	        						$("#datepicker").datepicker();
+	    						});
+							</script>
+							
 						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-default" onclick = "submitSingle();" data-dismiss="modal" id="submit">Submit</button>
-						</div>
+						<div class = "form-group">
+							<label for="usr">提前提醒（天）</label>
+							<select class="form-control" id="beforeRemind">
+								<option>0</option>
+							    <option>1</option>
+							    <option>3</option>
+							    <option>5</option>
+							    <option>7</option>
+						  	</select>
+					  	</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" onclick = "submitSingle();" data-dismiss="modal" id="submit">Submit</button>
 					</div>
 				</div>
 			</div>
-	</nav>
-
-	</ul>
-		<div id = "indexWrapper">
-			<ul id="toDoList"></ul>
 		</div>
-
+	</div>
+	<div id = "indexWrapper">
+		<ul id="toDoList"></ul>
+	</div>
 	<div id = "turtleWrapper">
 		<img src="img/logo_large.png" id="turtle">
 		<img src="img/loadingTurtle.png" id="turtleLoad">
 	</div>
-
-	
-	
-	
-	
-	
 </body>
 </html>
