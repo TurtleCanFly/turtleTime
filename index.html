@@ -11,17 +11,10 @@
 	<script src="js/bootstrap.min.js"></script>
 </head>
 <body>
-	<p id="p1">TurtlesCanfly<a href = "html/intro.html" id="intro">簡介</a></p>
-	<div id = "indexWrapper">
-		<ul id="toDoList"></ul>
-		<img src="img/logo_large.png" id="turtle">
-		<img src="img/loadingTurtle.png" id="turtleLoad">
-	</div>
-	
+
 	<nav class="navbar navbar-inverse navbar-static-bot">
 	  <div class="container-fluid">
-	    <ul class="nav navbar-nav navbar-left">
-	      	<button type="button" class="btn btn-default icon" data-toggle="modal" data-target="#singleAdd" id="vS">新增</button>
+	    
 		    <div id="singleAdd" class="modal fade modal-xl" role="dialog">
 				<div class="modal-dialog">
 					<div class="modal-content">
@@ -36,7 +29,7 @@
 							</div>
 							<div class="form-group">
 								<label for="usr">日期:</label>
-								<input type="text" class="form-control" id="datepicker">
+								<input type="date" class="form-control" id="datepicker">
 								<script type="text/javascript">
 		    						$(function () {
 		        						$("#datepicker").datepicker();
@@ -61,14 +54,26 @@
 					</div>
 				</div>
 			</div>
+		
+		<ul class="nav navbar-nav navbar-left">
+	      	<button type="button" class="btn btn-default icon" data-toggle="modal" data-target="#singleAdd" id="vS">新增</button>
 		</ul>
 	    <ul class="nav navbar-nav navbar-right">
 		  	<a href = "html/view_schedule.html">
 				<button class="btn btn-default icon" id="sA">規劃</button>
 			</a>
 	    </ul>
-	  </div>
 	</nav>
+
+	<p id="p1">TurtlesCanfly<a href = "html/intro.html" id="intro">簡介</a></p>
+	<div id = "indexWrapper">
+		<ul id="toDoList"></ul>
+		<img src="img/logo_large.png" id="turtle">
+		<img src="img/loadingTurtle.png" id="turtleLoad">
+	</div>
+	
+	
+	
 	
 	
 </body>

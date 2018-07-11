@@ -1,6 +1,7 @@
 var fdb = new ForerunnerDB();
 var db = fdb.db("todoDB");
 var todos = db.collection("todos", {autoCreate: true}); //make the actual database
+var schedule = db.collection("schedule", {autoCreate: true}); //make the actual database
 
 /*
 Data structure:
@@ -32,6 +33,7 @@ $(document).on('change', '#examPicker', function(e) {
 
 function run(){
 	res = todos.find();
+    s = schedule.find();
 	for(var i = 0 ; i < res.length; i++){
         //console.log(res[i]);
         var date = new Date(res[i].date);
@@ -41,6 +43,15 @@ function run(){
         $("#toDoList").append('<p class="list-group-item">' + '<span id="name">' + res[i].name + '</span><span id = "date">     ' + (date.getMonth()+1) + '/' + date.getDate() + '</span><input type="checkbox" class="checkbox" id = item_' + res[i]._id + '></p>');
         }
 	}
+    for(var i = 0 ; i < s.length; i++){
+        //console.log(res[i]);
+        var date = new Date(s[i].date);
+
+        if(new Date().setHours(0,0,0,0) == date.setHours(0,0,0,0)) {
+        // Date equals today's date  
+            $("#toDoList").append('<p class="list-group-item">' + '<span id="name">' + s[i].name + '</span><span id = "date">     ' + (date.getMonth()+1) + '/' + date.getDate() + '</span><input type="checkbox" class="checkbox" id = item_' + s[i]._id + '></p>');
+        }
+    }
 }
 
 function changePer(n){
@@ -76,9 +87,7 @@ $(document).on('change', '.checkbox', function() {
     console.log(todayTasks);
     var perc = doneCounter/todayTasks * 100;
     changePer(perc);
-    
 });
-
 function submitSingle(){
     var name = $("#itemName").val();
     var bR = $("#beforeRemind").val();
@@ -119,8 +128,13 @@ for(var i = 0 ; i < 10; i++){
 window.onload = function () { 
     todos.load(function (err, tableStats, metaStats) {
         if (!err) {
+            schedule.load(function (err, tableStats, metaStats) {
+                if (!err) {
+                    // Load was successful
+                    run(); 
+                }
+            });
             // Load was successful
-            run(); 
         }
     });
     
