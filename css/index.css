@@ -38,16 +38,7 @@
 	text-align: center;
 	font-size:40px;
 }
-#btn-setup {
-	margin: 30px;
-	text-align: center;
-	font-size:40px;
-}
-#btn-view {
-	margin: 30px;
-	text-align: center;
-	font-size:40px;
-}
+
 #btn-left {
 	position: absolute;
 	top: 95%;
@@ -66,7 +57,6 @@
 	border-radius: 50px;
 	font-family: 40px;
 }
-<<<<<<< HEAD
 #btn-setup{
 	position: absolute;
 	top: 20%;
@@ -85,7 +75,6 @@
 	border-radius: 15px 50px;
 	font-size: 100px;
 }
-=======
 .checkbox {
 	float: right;
 	width:40px;
@@ -123,13 +112,3 @@
 
 
 
-
-
-
-
-
-
-	]
-
-}
->>>>>>> daca37c8804968172e3080172db4222f029752c9
