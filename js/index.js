@@ -38,6 +38,10 @@ function run(){
 	for(var i = 0 ; i < res.length; i++){
         console.log(res[i]);
         var date = new Date(res[i].date);
+        console.log("hh");
+        console.log(new Date().setHours(0, 0, 0, 0));
+        console.log(date.setHours(0, 0, 0, 0));
+        console.log("gg");
         if(new Date().setHours(0,0,0,0) == date.setHours(0,0,0,0)) {
         // Date equals today's date  
         $("#toDoList").append('<p class="list-group-item">' + '<span id="name">' + res[i].name + '</span><span id = "date">    ' + (date.getMonth()+1) + '/' + date.getDate() + '</span><input type="checkbox" class="checkbox" id = item_' + res[i]._id + '></p>');
