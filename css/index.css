@@ -33,21 +33,22 @@
 #turtle {
 	position: absolute;
 	z-index: 2;
-	width:750px;
+	width:100%;
 	height:auto;
 	clip: rect(0, 100px, 50px, 0);
 	
 }
 
+.glyphicon{
+	font-size: 50px;
+}
+
 #turtleLoad {
 	z-index: 1;
-	width:750px;
+	width:100%;
 	height:auto;
 }
 
-.indexbtn{
-	font-size: 50px;
-}
 
 #toDoList {
 	display: block;

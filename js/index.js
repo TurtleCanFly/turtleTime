@@ -32,12 +32,12 @@ $(document).on('change', '#examPicker', function(e) {
 
 
 function run(){
+    $("#toDoList").empty();
 	res = todos.find();
     s = schedule.find();
 	for(var i = 0 ; i < res.length; i++){
-        //console.log(res[i]);
+        console.log(res[i]);
         var date = new Date(res[i].date);
-
         if(new Date().setHours(0,0,0,0) == date.setHours(0,0,0,0)) {
         // Date equals today's date  
         $("#toDoList").append('<p class="list-group-item">' + '<span id="name">' + res[i].name + '</span><span id = "date">     ' + (date.getMonth()+1) + '/' + date.getDate() + '</span><input type="checkbox" class="checkbox" id = item_' + res[i]._id + '></p>');
@@ -93,38 +93,26 @@ function submitSingle(){
     var bR = $("#beforeRemind").val();
     var date = $("#datepicker").val();
     date = new Date(date);
-    console.log(date - bR);
+    //console.log(new Date(date.getDate() - bR));
     if(name != "" && bR != ""){
         todos.insert({
             name: name,
-            date: date - bR,
+            date: date  - bR * 86400000,
             isDone: false
         });
         console.log(todos.find());
         todos.save(function (err) {
-            if (!err) {
+            if (err) {
                 console.log("Oh nooooo! Something went wrong: " + err);
             }
         });
     }
-
+    run();
     console.log($("#itemName").val() + ": " + $("#beforeRemind").val() + ", " + $("#datepicker").val());
 
 }
 
-function submitScedule(){
-}
 
-var dte = new Date();
-/*
-for(var i = 0 ; i < 10; i++){
-	todos.insert({
-	name: "Math AIME " + i,
-	date: dte.getTime() + 86400000*i,
-	isDone: false
-	});
-}
-*/
 window.onload = function () { 
     todos.load(function (err, tableStats, metaStats) {
         if (!err) {
