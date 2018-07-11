@@ -46,7 +46,7 @@ function run(){
         */
         if(new Date().setHours(0,0,0,0) == date.setHours(0,0,0,0)) {
         // Date equals today's date  
-        $("#toDoList").append('<li class="list-group-item ind"><span style = "font-size:20px;">' + res[i].name + '</span><span style="font-size:20px;"></span><span style="font-size:20px;">  ' + (date.getMonth()+1) + '/' + date.getDate() + '<span><button class = "doneBtn indexBtn btn" id = irm_' + res[i]._id + '><span class="glyphicon glyphicon-ok"><span><button class = "removeBtn indexBtn btn" id = iid_' + res[i]._id + '><span class="glyphicon glyphicon-trash"></span></button></span>');
+        $("#toDoList").append('<li class="list-group-item ind"><span style = "font-size:20px;">' + res[i].name + '</span><span style="font-size:20px;"></span><span style="font-size:20px;">  ' + (date.getMonth()+1) + '/' + date.getDate() + '<span><button class = "doneBtn indexBtn" id = iid_' + res[i]._id + '><span class="glyphicon glyphicon-ok"><span><button class = "removeBtn indexBtn" id = irm_' + res[i]._id + '><span class="glyphicon glyphicon-trash"></span></button></span>');
         //$("#toDoList").append('<span style="font-size:20px;">' + res[i].name + '</span><span style="font-size:20px;">    ' + (date.getMonth()+1) + '/' + date.getDate());
         //$("#toDoList").append('<li class="list-group-item">' + '<span style="font-size:25px;">' + res[i].name + '</span><span style="font-size:20px;">    ' + (date.getMonth()+1) + '/' + date.getDate() + '</span><span id = "indexCheck"><input type="checkbox" class="checkbox" id = item_' + res[i]._id + '></span></li>');
 
@@ -57,11 +57,11 @@ function run(){
         }
 	}
     for(var i = 0 ; i < s.length; i++){
-        console.log(s[i]);
+        //console.log(s[i]);
         var date = new Date(s[i].date);
         if(new Date().setHours(0,0,0,0) == date.setHours(0,0,0,0)) {
         // Date equals today's date  
-        $("#toDoList").append('<li class="list-group-item ind"><span style = "font-size:20px;">' + s[i].name + '</span><span style="font-size:20px;"></span><span style="font-size:20px;">  ' + (date.getMonth()+1) + '/' + date.getDate() + '<span><button class = "doneBtn indexBtn btn" id = srm_' + s[i]._id + '><span class="glyphicon glyphicon-ok"><span><button class = "removeBtn indexBtn btn" id = sid_' + s[i]._id + '><span class="glyphicon glyphicon-trash"></span></button></span>');
+        $("#toDoList").append('<li class="list-group-item ind"><span style = "font-size:20px;">' + s[i].name + '</span><span style="font-size:20px;"></span><span style="font-size:20px;">  ' + (date.getMonth()+1) + '/' + date.getDate() + '<span><button class = "doneBtn indexBtn" id = sid_' + s[i]._id + '><span class="glyphicon glyphicon-ok"><span><button class = "removeBtn indexBtn" id = srm_' + s[i]._id + '><span class="glyphicon glyphicon-trash"></span></button></span>');
             //$("#toDoList").append('<li class="list-group-item">' + '<span id="name">' + s[i].name + '</span><span id = "date">     ' + (date.getMonth()+1) + '/' + date.getDate() + '</span><a href="#" class="delItem">'
          // + '<span class="glyphicon glyphicon-minus"></span></a><span id = "indexCheck"><input type="checkbox" class="checkbox" id = item_' + s[i]._id + '></span></li>');
         }
@@ -114,19 +114,29 @@ function calcPerc(){
 $(document).on('click', '.doneBtn', function() {
     //console.log("hey");
     var id = this.id;
-    $("#" + id).css("color", "green");
     var opt = id[0];
     id = id.substring(4);
-    console.log(id);
-    var res, s;
-    //console.log("change!!");
+    //console.log(todos.find({_id: id}));
+    var end;
     if(opt[0] == 'i'){
-        todos.updateById(id, {isDone: true});
+        end = !todos.find({_id: id})[0].isDone;
+        todos.updateById(id, {isDone: end});
         console.log("one by one");
     } else {
-        schedule.updateById(id, {isDone: true});
+        end = !schedule.find({_id: id})[0].isDone;
+        schedule.updateById(id, {isDone: end});
         console.log("schedule");
     }
+    console.log(end);
+    if(end){
+        //console.log('"#' + opt + "id_" + id + '"');
+        $('#' + opt + "id_" + id).css("color", "green");
+    } else {
+        $("#" + opt + "id_" + id).css("color", "black"); 
+    }
+    var res, s;
+    //console.log("change!!");
+    
     
     calcPerc();
     //console.log(todayTasks);
@@ -138,7 +148,7 @@ $(document).on('click', '.removeBtn', function() {
     var id = this.id;
     var opt = id[0];
     id = id.substring(4);
-    console.log(id);
+    //console.log(id);
     var res, s;
     //console.log("change!!");
     if(opt[0] == 'i'){
