@@ -140,5 +140,4 @@ window.onload = function () {
     
     
 }
-run();
 
