@@ -35,7 +35,11 @@ function run(){
 	for(var i = 0 ; i < res.length; i++){
         //console.log(res[i]);
         var date = new Date(res[i].date);
-		$("#toDoList").append('<p class="list-group-item">' + '<span id="name">' + res[i].name + '</span><span id = "date">     ' + (date.getMonth()+1) + '/' + date.getDate() + '</span><input type="checkbox" class="checkbox" id = item_' + res[i]._id + '></p>');
+
+        if(new Date().setHours(0,0,0,0) == date.setHours(0,0,0,0)) {
+        // Date equals today's date  
+        $("#toDoList").append('<p class="list-group-item">' + '<span id="name">' + res[i].name + '</span><span id = "date">     ' + (date.getMonth()+1) + '/' + date.getDate() + '</span><input type="checkbox" class="checkbox" id = item_' + res[i]._id + '></p>');
+        }
 	}
 }
 
@@ -53,6 +57,7 @@ $(document).on('change', '.checkbox', function() {
     todos.updateById(id, {isDone: this.checked});
     //console.log(res.isDone);
     var doneCounter = 0;
+    var todayTasks = 0
     res = todos.find();
     console.log(res);
     var doneCounter = 0
@@ -60,9 +65,16 @@ $(document).on('change', '.checkbox', function() {
     	if(res[i].isDone){
     		doneCounter += 1;
     	}
+        var date = new Date(res[i].date);
+        console.log(date);
+        if(new Date().setHours(0,0,0,0) == date.setHours(0,0,0,0)) {
+            // Date equals today's date  
+            todayTasks += 1;
+        }
     		
     }
-    var perc = doneCounter/res.length * 100;
+    console.log(todayTasks);
+    var perc = doneCounter/todayTasks * 100;
     changePer(perc);
     
 });
