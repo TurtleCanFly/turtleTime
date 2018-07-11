@@ -135,10 +135,17 @@
 	height: 50px;
 }
 
-.icon {
-	font-size: 60px;
+#vS {
+	position: absolute;
+	top: 200px;
+	font-size: 50px;
+	border-radius: 50px;
+	width: 100px;
+	height: 100px;
+	padding: 0px;
 	margin: 30px;
-	padding: 20px;
+	text-align: center;
+	z-index: 1000;
 }
 
 #sA {
