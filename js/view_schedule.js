@@ -23,8 +23,10 @@ $(document).on('change', '#examPicker', function(e) {
 
 $(document).on('click', "#scheduleSubmit", function(e){
     schedule.remove();
+    $("#dataList").empty();
     var examName = $("#examName").val();
     var examDate = new Date($("#datepicker").val());
+    //console.log(examDate);
     var subjects = $("#subjectPicker").val(); //is an array :)
     var today = new Date();
     var diffDate = examDate - today;
@@ -34,15 +36,19 @@ $(document).on('click', "#scheduleSubmit", function(e){
     console.log(days);
     var nOfSubjects = subjects.length;
     var subsPerDay = Math.max(Math.ceil(nOfSubjects/days) ,2);
-    console.log(subsPerDay);
+    //console.log(subsPerDay);
+    //console.log(subsPerDay);
     var currentIndex = 0;
+    var gT = today.getTime();
+    console.log("BB: " + gT);
     for(var i = 0; i < days; i++){
         for(var j = 0; j < subsPerDay; j++){
             schedule.insert({
                 name: subjects[currentIndex],
-                date: today.getTime() + i* 86400000,
+                date: (gT + i* 86400000),
                 isDone: false
             });
+            console.log("AA: " + (gT + i* 86400000));
             currentIndex += 1;
             currentIndex %= nOfSubjects;
         }
@@ -55,26 +61,35 @@ $(document).on('click', "#scheduleSubmit", function(e){
     
 });
 
-var d = 0;
 function run(){
+    var d = 0;
     s = schedule.find();
     var today = new Date();
     $("#dataList").empty();
+    $("#dataList").append('<li class="date">' + (today.getMonth()+1) + "/" + today.getDate() + '</li>');
     for(var i = 0 ; i < s.length; i++) {
-        //console.log(res[i]);
+        //console.log(s[i]);
         var date = new Date(s[i].date);
-        if(today.setHours(0,0,0,0)+(d*86400000) == date.setHours(0,0,0,0)) {
-        // Date equals today's date  
-            $("#dataList").append('<tr><td style="font-size:40px;">' + s[i].name + '<button type = "button" class="btn btn-danger" id = "id_'+ s[i]._id + '"><span class = "glyphicon glyphicon-minus"></span></button></td></tr>');
+        
+        console.log("hh");
+        console.log(new Date(today.setHours(0,0,0,0)+ d*86400000));
+        console.log(new Date(date.setHours(0,0,0,0)));
+        console.log("gg");
+        
+        if(new Date(today.setHours(0,0,0,0)+ d*86400000).getTime() == new Date(date.setHours(0,0,0,0)).getTime()) {
+        // Date equals today's date 
+            //console.log(date); 
+            $("#dataList").append('<tr><td style="font-size:40px;">' + s[i].name + '<button type = "button" class="scheduleBtn" id = "id_'+ s[i]._id + '"><span class = "glyphicon glyphicon-minus"></span></button></td></tr>');
         } else {
             d++;
+            //console.log(date);
             $("#dataList").append('<li class="date">' + (date.getMonth()+1) + "/" + date.getDate() + '</li>');
-            $("#dataList").append('<tr><td style="font-size:40px;">' + s[i].name + '<button type = "button" class="btn btn-danger" id = "id_'+ s[i]._id + '"><span class = "glyphicon glyphicon-minus"></span></button></td></tr>');
+            $("#dataList").append('<tr><td style="font-size:40px;">' + s[i].name + '<button type = "button" class="scheduleBtn" id = "id_'+ s[i]._id + '"><span class = "glyphicon glyphicon-minus"></span></button></td></tr>');
         }
     }
 }
 
-$(document).on('click', 'button', function(){
+$(document).on('click', '.scheduleButton', function(){
     var id = this.id;
     id = id.substring(3);
     console.log(id);
