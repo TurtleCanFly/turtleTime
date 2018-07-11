@@ -133,7 +133,8 @@ window.onload = function () {
             schedule.load(function (err, tableStats, metaStats) {
                 if (!err) {
                     // Load was successful
-                    run(); 
+                    run();
+                    changePer(0);
                 }
             });
             // Load was successful
