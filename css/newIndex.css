@@ -21,6 +21,11 @@
 	z-index: 101;
 	border-radius: 25px;
 }
+#turtleWrapper {
+	margin: 0;
+	text-align: center;
+	width: 370px;
+}
 #turtleLoad {
 	position: relative;
 	width: 300px;
