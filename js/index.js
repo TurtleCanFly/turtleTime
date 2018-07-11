@@ -66,10 +66,12 @@ $(document).on('change', '.checkbox', function() {
     var res = todos.find(id);
     //console.log("change!!");
     todos.updateById(id, {isDone: this.checked});
+    schedule.updateById(id, {isDone: this.checked});
     //console.log(res.isDone);
     var doneCounter = 0;
-    var todayTasks = 0
+    var todayTasks = 0;
     res = todos.find();
+    s = schedule.find();
     console.log(res);
     var doneCounter = 0
     for(var i = 0 ; i < res.length; i++){
@@ -83,6 +85,18 @@ $(document).on('change', '.checkbox', function() {
             todayTasks += 1;
         }
     		
+    }
+    for(var i = 0 ; i < s.length; i++){
+        if(s[i].isDone){
+            doneCounter += 1;
+        }
+        var date = new Date(s[i].date);
+        console.log(date);
+        if(new Date().setHours(0,0,0,0) == date.setHours(0,0,0,0)) {
+            // Date equals today's date  
+            todayTasks += 1;
+        }
+            
     }
     console.log(todayTasks);
     var perc = doneCounter/todayTasks * 100;
