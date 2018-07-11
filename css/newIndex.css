@@ -19,6 +19,15 @@
 	width: 50px;
 	height: 50px;
 	margin-left: 12.5px;
+	margin-bottom: 25px;
+	z-index: 101;
+	border-radius: 25px;
+}
+#btn-reward {
+	position: relative;
+	width: 50px;
+	height: 50px;
+	margin-left: 12.5px;
 	z-index: 101;
 	border-radius: 25px;
 }
