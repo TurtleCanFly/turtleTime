@@ -1,8 +1,13 @@
-#indexWrapper {
-	text-align: center;
-	margin: 0 auto;
-}
 
+.navbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 200px;
+  background-color: black;
+}
 .list-group-item{
 	height: 150px;
 	vertical-align: middle;
