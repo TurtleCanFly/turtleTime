@@ -46,7 +46,7 @@ function run(){
         */
         if(new Date().setHours(0,0,0,0) == date.setHours(0,0,0,0)) {
         // Date equals today's date  
-        $("#toDoList").append('<li class="list-group-item ind"><span style = "font-size:20px;">' + res[i].name + '</span><span style="font-size:20px;">' + res[i].name + '</span><span style="font-size:20px;">  ' + (date.getMonth()+1) + '/' + date.getDate() + '<span><button class = "doneBtn indexBtn btn" id = irm_' + res[i]._id + '><span class="glyphicon glyphicon-ok"><span><button class = "removeBtn indexBtn btn" id = iid_' + res[i]._id + '><span class="glyphicon glyphicon-trash"></span></button></span>');
+        $("#toDoList").append('<li class="list-group-item ind"><span style = "font-size:20px;">' + res[i].name + '</span><span style="font-size:20px;"></span><span style="font-size:20px;">  ' + (date.getMonth()+1) + '/' + date.getDate() + '<span><button class = "doneBtn indexBtn btn" id = irm_' + res[i]._id + '><span class="glyphicon glyphicon-ok"><span><button class = "removeBtn indexBtn btn" id = iid_' + res[i]._id + '><span class="glyphicon glyphicon-trash"></span></button></span>');
         //$("#toDoList").append('<span style="font-size:20px;">' + res[i].name + '</span><span style="font-size:20px;">    ' + (date.getMonth()+1) + '/' + date.getDate());
         //$("#toDoList").append('<li class="list-group-item">' + '<span style="font-size:25px;">' + res[i].name + '</span><span style="font-size:20px;">    ' + (date.getMonth()+1) + '/' + date.getDate() + '</span><span id = "indexCheck"><input type="checkbox" class="checkbox" id = item_' + res[i]._id + '></span></li>');
 
@@ -61,7 +61,7 @@ function run(){
         var date = new Date(s[i].date);
         if(new Date().setHours(0,0,0,0) == date.setHours(0,0,0,0)) {
         // Date equals today's date  
-        $("#toDoList").append('<li class="list-group-item ind"><span style = "font-size:20px;">' + s[i].name + '</span><span style="font-size:20px;"></span><span style="font-size:20px;">  ' + (date.getMonth()+1) + '/' + date.getDate() + '<span><button class = "doneBtn indexBtn btn" id = srm_' + s[i]._id + '><span class="glyphicon glyphicon-ok"><span><button class = "doneBtn indexBtn btn" id = sid_' + s[i]._id + '><span class="glyphicon glyphicon-trash"></span></button></span>');
+        $("#toDoList").append('<li class="list-group-item ind"><span style = "font-size:20px;">' + s[i].name + '</span><span style="font-size:20px;"></span><span style="font-size:20px;">  ' + (date.getMonth()+1) + '/' + date.getDate() + '<span><button class = "doneBtn indexBtn btn" id = srm_' + s[i]._id + '><span class="glyphicon glyphicon-ok"><span><button class = "removeBtn indexBtn btn" id = sid_' + s[i]._id + '><span class="glyphicon glyphicon-trash"></span></button></span>');
             //$("#toDoList").append('<li class="list-group-item">' + '<span id="name">' + s[i].name + '</span><span id = "date">     ' + (date.getMonth()+1) + '/' + date.getDate() + '</span><a href="#" class="delItem">'
          // + '<span class="glyphicon glyphicon-minus"></span></a><span id = "indexCheck"><input type="checkbox" class="checkbox" id = item_' + s[i]._id + '></span></li>');
         }
@@ -106,17 +106,18 @@ function calcPerc(){
         }
             
     }
+    console.log("Tasks: " + todayTasks);
     var perc = doneCounter/todayTasks * 100;
     changePer(perc);
 }
 
 $(document).on('click', '.doneBtn', function() {
-    console.log("hey");
+    //console.log("hey");
     var id = this.id;
+    $("#" + id).css("color", "green");
     var opt = id[0];
     id = id.substring(4);
     console.log(id);
-
     var res, s;
     //console.log("change!!");
     if(opt[0] == 'i'){
@@ -133,7 +134,7 @@ $(document).on('click', '.doneBtn', function() {
 });
 
 $(document).on('click', '.removeBtn', function() {
-    console.log("hey");
+    //console.log("hey");
     var id = this.id;
     var opt = id[0];
     id = id.substring(4);
@@ -157,8 +158,6 @@ $(document).on('click', '.removeBtn', function() {
     calcPerc();
     //console.log(todayTasks);
     //console.log(doneCounter);
-    
-    
 });
 
 
