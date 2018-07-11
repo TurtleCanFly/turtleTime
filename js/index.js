@@ -69,7 +69,7 @@ function run(){
 }
 
 function changePer(n){
-	$("#turtle").css("clip", "rect(" + (188*(1 - (n)/100) + 94) +", 300px, 188px, 0)"); //PLEASE DO NOT CHANGE THE NUMBERS IT TOOK HALF AN HOUR TO GET THE RIGHT NUMBERS
+	$("#turtle").css("clip", "rect(" + (188*(1 - (n)/100) + 270) +", 300px, 188px, 0)"); //PLEASE DO NOT CHANGE THE NUMBERS IT TOOK HALF AN HOUR TO GET THE RIGHT NUMBERS
 	//console.log(n);
 }
 
